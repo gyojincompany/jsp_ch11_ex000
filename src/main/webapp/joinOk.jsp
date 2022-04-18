@@ -35,7 +35,7 @@
 		try{
 			Class.forName(driverName);//드라이버 로딩
 			conn = DriverManager.getConnection(url, username, password);//DB 연동
-			stmt = conn.createStatement();
+			stmt = conn.createStatement();//sql 문 객체
 			
 			int dbFlag = stmt.executeUpdate(sql);//sql 문 실행->1이 오면 성공 아니면 실패
 			
@@ -45,7 +45,7 @@
 				out.println("회원 가입 실패!!");
 			}
 			
-			out.println(conn);
+			//out.println(conn);
 		} catch(Exception e) {
 			e.printStackTrace();//에러 내용 출력
 		} finally {
@@ -61,5 +61,9 @@
 			}
 		}
 	%>
+	
+	<br><br>
+	<a href="memberlist.jsp">회원 리스트 보기</a>
+	
 </body>
 </html>
